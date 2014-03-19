@@ -1,0 +1,36 @@
+Qt surf - another simple webkit-based browser
+=============================================
+Qt surf is a simple Web browser based on Qt and QtWebkit. 
+
+It is currently written in PyQt, since C++ is a pain to use. Reason for using 
+Qt instead of GTK like surf [1] is stability: WebkitGTK tends to crash on heavy
+websites, and GGTK3 makes it even worse. However, GTK3 is needed for touchscreen
+support.
+
+QtWebkit seems to render everything you throw at it, including WebGL and HTML5
+video.
+
+Requirements
+------------
+Qt surf needs Qt5 with QtWebkit and PyQt5. Tested with Python 2.
+
+Caveats
+-------
+While Qt has support for touchscreens and tablets and kintetic scrolling, it
+seems to be pretty broken. Qt surf uses lots of manual event handling to make
+everything work.
+
+Right now barely any features are implemented, but it should be quite easy to
+port almost all features of surf [1].
+
+In the future, it might be nice to migrate to native code, but for these early
+stages I prefer Python. (You can remove the app.exec line and load it in ipython
+to inspect APIs and try functions.)
+
+Also in the future, Qt will migrate to QtWebEngine, which is chromium based. 
+While it is probably heavier than Webkit, the code seems to be in a better 
+shape, and it might even be possible to compile a static surf binary with it.
+
+[1]: http://surf.suckless.org/
+
+
